@@ -38,7 +38,7 @@ class AppSession {
   def writeParquet(df: DataFrame, output:String) ={
     println(">>>>>" + conf.getString(output))
     df.write.mode("overwrite")
-//      .partitionBy(partitionBy)
+      .partitionBy("noc")
       .parquet(conf.getString(output))
   }
 }
